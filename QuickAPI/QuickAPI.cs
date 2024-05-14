@@ -132,12 +132,13 @@ namespace QuickAPI
                     }
                     //请求类型
                     this.RequestMethod = tokens[0];
-                    //请求地址
+                    //请求完整Url
                     this.Url = tokens[1];
+                    //请求地址
+                    this.UrlPath = this.Url.Split('?')[0];
                     //请求头的键值对信息
                     this.Headers = new();
                     // 将请求头按行分割
-
                 }
                 /// <summary>
                 /// 请求头原始数据
@@ -152,9 +153,13 @@ namespace QuickAPI
                 /// </summary>
                 public string RequestMethod { get; }
                 /// <summary>
-                /// 请求路径
+                /// 请求完整Url
                 /// </summary>
                 public string Url { get; set; }
+                /// <summary>
+                /// 请求路径
+                /// </summary>
+                public string UrlPath { get; set; }
                 /// <summary>
                 /// 请求头中的键值对信息
                 /// </summary>
